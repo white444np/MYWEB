@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-accent="blue">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nandalal Patil — Advanced Cybersecurity Analyst</title>
+    <meta name="description" content="Cybersecurity graduate specializing in VAPT, threat modeling, and application security. Hands-on experience testing 20+ web apps, Linux systems, and enterprise networks." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234F8CFF' d='M12 1 3 5v6c0 5.2 3.6 9.9 9 11 5.4-1.1 9-5.8 9-11V5l-9-4Z'/%3E%3C/svg%3E" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <!-- ====== THREE.JS CANVAS ====== -->
+    <div id="three-canvas"></div>
+
+    <!-- ====== PROGRESS BAR ====== -->
+    <div id="progressBar"></div>
+
+    <!-- ====== COMMAND PALETTE ====== -->
+    <div class="palette-overlay" id="paletteOverlay"></div>
+    <div class="command-palette" id="commandPalette">
+        <input type="text" id="paletteInput" placeholder="Search or type a command…" autofocus />
+        <div class="results" id="paletteResults">
+            <div class="result-item" data-target="#home">🏠 Go to Home</div>
+            <div class="result-item" data-target="#about">👤 Go to About</div>
+            <div class="result-item" data-target="#experience">💼 Go to Experience</div>
+            <div class="result-item" data-target="#projects">📁 Go to Projects</div>
+            <div class="result-item" data-target="#skills">🛠️ Go to Skills</div>
+            <div class="result-item" data-target="#certifications">📜 Go to Certifications</div>
+            <div class="result-item" data-target="#contact">📧 Go to Contact</div>
+            <div class="result-item" data-action="theme">🌓 Toggle Theme</div>
+            <div class="result-item" data-action="accent-blue">🎨 Accent: Blue</div>
+            <div class="result-item" data-action="accent-cyan">🎨 Accent: Cyan</div>
+            <div class="result-item" data-action="accent-purple">🎨 Accent: Purple</div>
+            <div class="result-item" data-action="accent-green">🎨 Accent: Green</div>
+            <div class="result-item" data-action="accent-red">🎨 Accent: Red</div>
+        </div>
+    </div>
+
+    <!-- ====== NAV ====== -->
+    <header class="nav">
+        <div class="nav-inner">
+            <a href="#home" class="brand">
+                <svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.2 3.6 9.9 9 11 5.4-1.1 9-5.8 9-11V5l-9-4Z"/></svg>
+                Nandalal Patil
+            </a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+                </button>
+                <button class="icon-btn" id="accentToggle" aria-label="Change accent color">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </button>
+                <button class="icon-btn" id="paletteToggle" aria-label="Open command palette (Ctrl+K)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10h18M3 14h18M3 18h12"/><path d="M7 6h10"/></svg>
+                </button>
+                <a class="nav-cta" href="#" download>Résumé</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ====== HERO ====== -->
+        <section class="hero" id="home">
+            <div class="scan-line"></div>
+            <div class="glow-orb" id="glowOrb"></div>
+            <div class="wrap hero-grid">
+                <div>
+                    <div class="eyebrow">🔍 Live Threat Assessment</div>
+                    <h1>I find what's broken <br /><span class="accent-word">before someone else does.</span></h1>
+                    <p class="lede">B.Tech in Cybersecurity. Hands-on VAPT across web apps, Linux, and enterprise networks. I build full-stack apps — so I know where the vulnerabilities hide.</p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">
+                            Explore Projects
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        </a>
+                        <a href="#" class="btn btn-ghost">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 19h16"/></svg>
+                            Download Résumé
+                        </a>
+                    </div>
+                    <div class="hero-meta">
+                        <div><span class="num" data-count="20">20+</span><span class="lbl">SYSTEMS TESTED</span></div>
+                        <div><span class="num" data-count="5">5+</span><span class="lbl">THREAT MODELS</span></div>
+                        <div><span class="num" data-count="9.7">9.7</span><span class="lbl">CGPA · B.TECH IT</span></div>
+                        <div><span class="num" data-count="3">3</span><span class="lbl">YEARS HANDS-ON</span></div>
+                    </div>
+                </div>
+                <div class="terminal-window">
+                    <div class="term-header">
+                        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                        <span class="title">root@nandalal:~ $</span>
+                    </div>
+                    <div class="terminal-body" id="terminalBody">
+                        <div class="line"><span class="prompt">➜</span><span class="cmd">Initializing security scan…</span></div>
+                        <div class="line"><span class="prompt">➜</span><span class="cmd">Target: Nandalal Patil (Cybersecurity Analyst)</span></div>
+                        <div class="line"><span class="prompt">➜</span><span class="cmd" id="termOutput"></span><span class="cursor-blink"></span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== TOOLS MARQUEE ====== -->
+        <section class="marquee-section" aria-label="Tools I work with">
+            <div class="marquee-track-wrap">
+                <div class="marquee-track">
+                    <span>Burp Suite</span><span>Nessus</span><span>OWASP ZAP</span><span>Nmap</span><span>Wireshark</span>
+                    <span>Metasploit</span><span>Kali Linux</span><span>Azure</span><span>IriusRisk</span><span>MS Threat Modeling Tool</span>
+                    <span>React</span><span>Node.js</span><span>Python</span><span>MongoDB</span><span>Docker</span>
+                    <span>Burp Suite</span><span>Nessus</span><span>OWASP ZAP</span><span>Nmap</span><span>Wireshark</span>
+                    <span>Metasploit</span><span>Kali Linux</span><span>Azure</span><span>IriusRisk</span><span>MS Threat Modeling Tool</span>
+                    <span>React</span><span>Node.js</span><span>Python</span><span>MongoDB</span><span>Docker</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== ABOUT ====== -->
+        <section class="section reveal" id="about">
+            <div class="wrap about-grid">
+                <div>
+                    <div class="eyebrow">About</div>
+                    <h2 style="font-size: clamp(28px, 4vw, 42px); line-height:1.1;">From fixing computers to breaking them on purpose.</h2>
+                </div>
+                <div class="about-copy">
+                    <p>I didn't start out chasing cybersecurity — I started out fixing other people's computers. Two years in IT support taught me how systems actually break in practice: bad configurations, weak passwords, forgotten patches, a user who clicks the wrong link. That ground-level view stuck with me.</p>
+                    <p>From there I moved into full-stack development, building applications with the <strong>MERN stack</strong>, and started noticing how much of what I was learning in security classes showed up in the code I was writing — and in code I wasn't writing carefully enough.</p>
+                    <p>That's what pulled me fully into security. I've since tested real web applications and networks for vulnerabilities, built <strong>STRIDE threat models</strong> for healthcare and IoT systems, and built <strong>WAFGuard</strong>, a web application firewall that pairs rule-based detection with a machine learning model — because I wanted to understand both sides of the fight.</p>
+                    <p>I completed my internship at <strong>eInfochips (An Arrow Company)</strong> in August 2026, working across VAPT, threat modeling, and secure SDLC. I've since joined <strong>Knights Eye LLP</strong> as a <strong>Junior System Engineer</strong>, where I support systems administration and infrastructure security while continuing to build toward a full-time role in offensive security.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== EXPERIENCE ====== -->
+        <section class="section reveal" id="experience">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="eyebrow">Experience</div>
+                    <h2>Seven roles, one direction.</h2>
+                    <p class="sub">Each step added a layer — infrastructure, then code, then how to break both on purpose.</p>
+                </div>
+                <div class="timeline">
+                    <div class="tl-item current">
+                        <div class="tl-head">
+                            <div><span class="tl-role">Junior System Engineer</span> — <span class="tl-org">Knights Eye LLP</span></div>
+                            <div class="tl-time">SEP 2026 — PRESENT · REMOTE</div>
+                        </div>
+                        <ul class="tl-body">
+                            <li>Administering and hardening Windows/Linux systems and network infrastructure, applying secure-configuration and least-privilege principles learned through VAPT work.</li>
+                            <li>Monitoring systems for vulnerabilities and anomalies, and supporting patch management and access-control reviews.</li>
+                            <li>Bridging systems engineering with a security-first mindset — documenting configurations and flagging risks before they become incidents.</li>
+                        </ul>
+                        <div class="tl-tags"><span class="tag">Systems Administration</span><span class="tag">Linux</span><span class="tag">Windows</span><span class="tag">Security Hardening</span></div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-head">
+                            <div><span class="tl-role">Cybersecurity Intern</span> — <span class="tl-org">eInfochips (An Arrow Company)</span></div>
+                            <div class="tl-time">JAN 2026 — AUG 2026 · AHMEDABAD</div>
+                        </div>
+                        <ul class="tl-body">
+                            <li>Tested 20+ web applications, Linux systems, and enterprise networks with Burp Suite, Nessus, Nmap, Wireshark, and Metasploit.</li>
+                            <li>Built STRIDE-based threat models for 5+ healthcare and IoT systems using Microsoft Threat Modeling Tool and IriusRisk.</li>
+                            <li>Folded threat modeling and security testing into Secure SDLC instead of bolting it on at the end.</li>
+                        </ul>
+                        <div class="tl-tags"><span class="tag">VAPT</span><span class="tag">STRIDE</span><span class="tag">Secure SDLC</span><span class="tag">Azure</span></div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-head">
+                            <div><span class="tl-role">Software Engineer Intern</span> — <span class="tl-org">Bluestock</span></div>
+                            <div class="tl-time">MAY — JUN 2025 · REMOTE</div>
+                        </div>
+                        <ul class="tl-body">
+                            <li>Built and shipped React.js features backed by Node.js and MongoDB.</li>
+                            <li>Worked across the stack — REST APIs, database logic, reusable components — which sharpened how I think about where application vulnerabilities actually originate.</li>
+                        </ul>
+                        <div class="tl-tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span></div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-head">
+                            <div><span class="tl-role">Cybersecurity Intern</span> — <span class="tl-org">Hacktify</span></div>
+                            <div class="tl-time">FEB — MAR 2025 · REMOTE</div>
+                        </div>
+                        <ul class="tl-body">
+                            <li>Manually tested web applications for SQL injection, XSS, and authentication weaknesses.</li>
+                            <li>Ran network reconnaissance with Nmap to map attack surfaces ahead of deeper testing.</li>
+                        </ul>
+                        <div class="tl-tags"><span class="tag">SQLi</span><span class="tag">XSS</span><span class="tag">Nmap</span></div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-head">
+                            <div><span class="tl-role">Technical Team Member</span> — <span class="tl-org">CyberSecurity Club, SCET</span></div>
+                            <div class="tl-time">JUL 2024 — PRESENT · SURAT</div>
+                        </div>
+                        <ul class="tl-body">
+                            <li>Ran workshops and hands-on sessions on ethical hacking and networking for other students.</li>
+                            <li>Organized security-awareness events for the college community.</li>
+                        </ul>
+                        <div class="tl-tags"><span class="tag">Community</span><span class="tag">Teaching</span></div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-head">
+                            <div><span class="tl-role">Full-Stack Developer</span> — <span class="tl-org">Webstack Academy</span></div>
+                            <div class="tl-time">JUL — AUG 2024 · BENGALURU</div>
+                        </div>
+                        <ul class="tl-body">
+                            <li>Built end-to-end MERN applications, from database schema to UI.</li>
+                        </ul>
+                        <div class="tl-tags"><span class="tag">MERN</span></div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-head">
+                            <div><span class="tl-role">IT Support Specialist</span> — <span class="tl-org">Proskill Engineering</span></div>
+                            <div class="tl-time">JAN 2023 — MAY 2024 · VADODARA</div>
+                        </div>
+                        <ul class="tl-body">
+                            <li>Configured and secured 20+ Windows/Linux workstations and resolved day-to-day infrastructure issues — the practical starting point for everything that came after.</li>
+                        </ul>
+                        <div class="tl-tags"><span class="tag">Linux</span><span class="tag">Windows</span><span class="tag">Networking</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== PROJECTS ====== -->
+        <section class="section reveal" id="projects">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="eyebrow">Projects</div>
+                    <h2>Built to be attacked. On purpose.</h2>
+                    <p class="sub">Each one exists to answer a specific security question, not to fill a portfolio slot.</p>
+                </div>
+                <div class="filter-row" id="filterRow">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="security">Security</button>
+                    <button class="filter-btn" data-filter="ml">ML</button>
+                    <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+                    <button class="filter-btn" data-filter="threatmodel">Threat Modeling</button>
+                </div>
+                <div class="projects-grid" id="projectsGrid">
+                    <article class="pcard" data-tags="security ml">
+                        <div class="pcard-top">
+                            <h3>WAFGuard</h3>
+                            <div class="pcard-links">
+                                <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.35 4.68-4.58 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
+                                <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6M15 3h6v6M10 14 21 3"/></svg></a>
+                            </div>
+                        </div>
+                        <div class="field"><div class="k">Problem</div><div class="v">Signature-based firewalls only catch known attacks.</div></div>
+                        <div class="field"><div class="k">Approach</div><div class="v">Reverse-proxy with rule-based filtering + LightGBM model to catch novel SQLi, XSS, and OWASP Top 10 attacks.</div></div>
+                        <div class="pcard-tags"><span class="tag">Python</span><span class="tag">LightGBM</span><span class="tag">Reverse Proxy</span><span class="tag">OWASP</span></div>
+                    </article>
+                    <article class="pcard" data-tags="security fullstack">
+                        <div class="pcard-top">
+                            <h3>Convomate</h3>
+                            <div class="pcard-links">
+                                <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.35 4.68-4.58 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
+                                <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6M15 3h6v6M10 14 21 3"/></svg></a>
+                            </div>
+                        </div>
+                        <div class="field"><div class="k">Problem</div><div class="v">Real-time chat apps are prime targets for broken auth and injections.</div></div>
+                        <div class="field"><div class="k">Approach</div><div class="v">JWT, MFA, encrypted communication, RBAC enforcing least privilege — hardened against OWASP Top 10.</div></div>
+                        <div class="pcard-tags"><span class="tag">MERN</span><span class="tag">JWT</span><span class="tag">RBAC</span><span class="tag">MFA</span></div>
+                    </article>
+                    <article class="pcard" data-tags="security threatmodel">
+                        <div class="pcard-top">
+                            <h3>Healthcare & IoT Threat Models</h3>
+                        </div>
+                        <div class="field"><div class="k">Problem</div><div class="v">Connected medical devices expand the attack surface beyond IT security.</div></div>
+                        <div class="field"><div class="k">Approach</div><div class="v">STRIDE-based models for 5+ systems using MS Threat Modeling Tool and IriusRisk.</div></div>
+                        <div class="field"><div class="k">Note</div><div class="v">Internal engagement — details available on request.</div></div>
+                        <div class="pcard-tags"><span class="tag">STRIDE</span><span class="tag">IriusRisk</span><span class="tag">IoT Security</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== SKILLS ====== -->
+        <section class="section reveal" id="skills">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="eyebrow">Skills</div>
+                    <h2>Grouped by what they're for, not alphabetized.</h2>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-group"><h4>Security</h4><div class="skill-chips"><span class="chip">VAPT</span><span class="chip">Threat Modeling (STRIDE)</span><span class="chip">Secure SDLC</span><span class="chip">Risk Assessment</span><span class="chip">OWASP Top 10</span><span class="chip">Application Security</span></div></div>
+                    <div class="skill-group"><h4>Networking</h4><div class="skill-chips"><span class="chip">TCP/IP</span><span class="chip">Network Recon</span><span class="chip">Firewalls</span><span class="chip">Segmentation</span><span class="chip">Wireshark</span></div></div>
+                    <div class="skill-group"><h4>Cloud & Systems</h4><div class="skill-chips"><span class="chip">Microsoft Azure</span><span class="chip">Linux (RHEL SA1/SA2)</span><span class="chip">Kali Linux</span><span class="chip">Windows</span></div></div>
+                    <div class="skill-group"><h4>Tools</h4><div class="skill-chips"><span class="chip">Burp Suite</span><span class="chip">Nessus</span><span class="chip">OWASP ZAP</span><span class="chip">Nmap</span><span class="chip">Metasploit</span><span class="chip">IriusRisk</span></div></div>
+                    <div class="skill-group"><h4>Development</h4><div class="skill-chips"><span class="chip">React.js</span><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">MongoDB</span><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">SQL</span></div></div>
+                    <div class="skill-group"><h4>Working Style</h4><div class="skill-chips"><span class="chip">Analytical Thinking</span><span class="chip">Clear Documentation</span><span class="chip">Time Management</span><span class="chip">Continuous Learning</span></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== CERTIFICATIONS ====== -->
+        <section class="section reveal" id="certifications">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="eyebrow">Certifications</div>
+                    <h2>Formal training behind the hands-on work.</h2>
+                </div>
+                <div class="cert-grid">
+                    <div class="cert-card"><div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 3 6v6c0 5.2 3.6 9.9 9 11 5.4-1.1 9-5.8 9-11V6l-9-4Z"/><path d="m9 12 2 2 4-4"/></svg></div><div><h4>Google Cybersecurity Professional Certificate</h4><div class="status done">Completed</div></div></div>
+                    <div class="cert-card"><div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div><div><h4>CompTIA Security+</h4><div class="status done">Training completed</div></div></div>
+                    <div class="cert-card"><div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M8 9h5M8 15h6"/></svg></div><div><h4>CompTIA Network+</h4><div class="status done">Training completed</div></div></div>
+                    <div class="cert-card"><div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 3 6v6c0 5.2 3.6 9.9 9 11 5.4-1.1 9-5.8 9-11V6l-9-4Z"/></svg></div><div><h4>Certified Ethical Hacker (CEH)</h4><div class="status progress">In progress</div></div></div>
+                    <div class="cert-card"><div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 17V7l8-4 8 4v10l-8 4-8-4Z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg></div><div><h4>RHEL Administration — SA1 & SA2</h4><div class="status done">Completed</div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== CONTACT ====== -->
+        <section class="section reveal" id="contact">
+            <div class="wrap contact-wrap">
+                <div class="contact-copy">
+                    <div class="eyebrow">Contact</div>
+                    <h2>Let's talk about your team.</h2>
+                    <p>I'm currently a Junior System Engineer at Knights Eye LLP, and open to Cybersecurity Analyst, Security Engineer, Application Security Engineer, or VAPT Analyst roles. If your team is hiring, I'd like to hear about it.</p>
+                </div>
+                <div class="contact-list">
+                    <a class="contact-row" href="mailto:nandlal.patil2004@gmail.com">
+                        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+                        <div><div class="k">Email</div><div class="v">nandlal.patil2004@gmail.com</div></div>
+                        <div class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                    </a>
+                    <a class="contact-row" href="tel:+917041900392">
+                        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2Z"/></svg></div>
+                        <div><div class="k">Phone</div><div class="v">+91 70419 00392</div></div>
+                        <div class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                    </a>
+                    <a class="contact-row" href="https://www.linkedin.com/in/nandalalpatil" target="_blank">
+                        <div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.02 2 2 0 0 1 4 .02ZM7 8.48H3V21h4V8.48Zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-3.96 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.68-2.91V8.48Z"/></svg></div>
+                        <div><div class="k">LinkedIn</div><div class="v">linkedin.com/in/nandalalpatil</div></div>
+                        <div class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                    </a>
+                    <a class="contact-row" href="#" target="_blank">
+                        <div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.35 4.68-4.58 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></div>
+                        <div><div class="k">GitHub</div><div class="v">github.com/nandalalpatil</div></div>
+                        <div class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                    </a>
+                    <div class="contact-row">
+                        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                        <div><div class="k">Location</div><div class="v">Gujarat, India — open to relocation</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ====== FOOTER ====== -->
+    <footer>
+        <div class="wrap footer-inner">
+            <span>© 2026 Nandalal Patil. Built by hand.</span>
+            <div class="fright">
+                <a href="mailto:nandlal.patil2004@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/nandalalpatil" target="_blank">LinkedIn</a>
+                <a href="#">Résumé</a>
+                <a href="#home">↑ Back to top</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================================================================
+    SCRIPTS
+    ================================================================ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
